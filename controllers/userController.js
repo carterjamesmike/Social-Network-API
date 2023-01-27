@@ -2,7 +2,7 @@ const { ObjectID } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
 
-moudule.exports = {
+module.exports = {
 
     getUsers(req,res) {
         User.find()
