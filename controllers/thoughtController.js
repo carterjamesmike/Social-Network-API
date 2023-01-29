@@ -20,7 +20,15 @@ module.exports = {
 
     //Create a thought
     createThought(req, res) {
+        console.log(req.body.userID)
         Thought.create(req.body)
+        .then((thought) => {
+            return User.findOneAndUpdate(
+                { _id: req.body.userID },
+                { $push: { thoughts: thought._id }},
+                { new: true }
+            );
+            })
         .then((thought) => res.json(thought))
         .catch((err) => res.status(500).json(err));
     },
@@ -37,8 +45,8 @@ module.exports = {
           .catch((err) => res.status(500).json(err));
       },
 
-      //Update a thought
-      updateThought(req, res) {
+    //Update a thought
+    updateThought(req, res) {
         Thought.findByIdAndUpdate(
             { _id: req.params.thoughtID },
             { $set: req.body },
@@ -54,7 +62,6 @@ module.exports = {
             ); 
 
     },
-
 
       //Delete a thought
       deleteThought(req, res) {

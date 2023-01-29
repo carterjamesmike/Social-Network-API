@@ -6,16 +6,16 @@
                 GET for single THOUGHT
                 POST for USERS
                 POST for THOUGHTS
-PUT for USERS
-PUT for THOUGHTS
+                PUT for USERS
+                PUT for THOUGHTS
         DELETE for USERS (still need to link thougths)
-DELETE for THOUGHTS
+        DELETE for THOUGHTS (still need to link reacctions?)
 POST for REACTIONS
 DELETE for REACTIONS
-POST for USER's friend list
-DELETE for USER's friend list
+                POST for USER's friend list
+                DELETE for USER's friend list
 
 
 
 BONUS
-When USER is deleted, associated THOUGHTS are deleted
+When USER is deleted, associated THOUGHTS are deleted (will work once thoughts are linked to users)
