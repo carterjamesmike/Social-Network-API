@@ -2,10 +2,10 @@
 
         GET for all USERS (still need to link thoughts)
                 GET for all THOUGHTS
-GET for single USER
-GET for single THOUGHT
-        POST for USERS
-POST for THOUGHTS
+                GET for single USER
+                GET for single THOUGHT
+                POST for USERS
+                POST for THOUGHTS
 PUT for USERS
 PUT for THOUGHTS
 DELETE for USERS
