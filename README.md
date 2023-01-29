@@ -8,7 +8,7 @@
                 POST for THOUGHTS
 PUT for USERS
 PUT for THOUGHTS
-DELETE for USERS
+        DELETE for USERS (still need to link thougths)
 DELETE for THOUGHTS
 POST for REACTIONS
 DELETE for REACTIONS

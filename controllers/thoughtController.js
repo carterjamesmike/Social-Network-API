@@ -31,16 +31,42 @@ module.exports = {
           //.select('-__v')
           .then((thought) =>
             !thought
-              ? res.status(404).json({ message: 'No thinking with that ID' })
+              ? res.status(404).json({ message: 'No thought with that ID' })
               : res.json(thought)
           )
           .catch((err) => res.status(500).json(err));
       },
 
       //Update a thought
+      updateThought(req, res) {
+        Thought.findByIdAndUpdate(
+            { _id: req.params.thoughtID },
+            { $set: req.body },
+            { runValidators: true, new: true }
+        )
+        .then((thought) =>
+            !thought
+                ? res.status(404).json({ message: "No thought with that ID" })
+                : res.json(thought)
+        )
+        .catch((err) =>
+            res.status(500).json(err)
+            ); 
+
+    },
 
 
       //Delete a thought
-
-
+      deleteThought(req, res) {
+        Thought.findOneAndDelete({ _id: req.params.thoughtID })
+            .then((thought) => {
+            if (!thought) {
+                res.status(404).json({ message: "No thought with that ID" })
+                }
+            })
+            .then(() => res.json({ message: "Thought deleted" }))
+            .catch((err) => 
+                res.status(500).json(err)
+            );
+      }
 }

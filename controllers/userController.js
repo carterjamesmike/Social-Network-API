@@ -32,20 +32,45 @@ module.exports = {
           .select('-__v')
           .then((user) =>
             !user
-              ? res.status(404).json({ message: 'No user with that ID' })
+              ? res.status(404).json({ message: "No user with that ID found" })
               : res.json(user)
           )
           .catch((err) =>     
-             res.status(500).json(err));
+             res.status(500).json(err)
+             );
       },
 
     //Update a user
     updateUser(req, res) {
-        User.findByIdAndUpdate
-    }
+        User.findByIdAndUpdate(
+            { _id: req.params.userID },
+            { $set: req.body },
+            { runValidators: true, new: true }
+        )
+        .then((user) =>
+            !user
+                ? res.status(404).json({ message: "No user with that ID found" })
+                : res.json(user)
+        )
+        .catch((err) =>
+            res.status(500).json(err)
+            ); 
 
-    //Delete a user
+    },
 
+    //Delete a user and associated thoughts
+    deleteUser(req, res) {
+        User.findOneAndDelete({ _id: req.params.userID })
+            .then((user) => 
+            !user
+                ? res.status(404).json({ message: "No user with that ID found" })
+                : Thought.deleteMany({ _id: { $in: user.thoughts }  })
+            )
+            .then(() => res.json({ message: "User and associated thoughts deleted" }))
+            .catch((err) =>
+                res.status(500).json(err)
+            );
+    },
 
 }
 
