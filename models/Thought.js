@@ -16,10 +16,7 @@ const reactionSchema = new Schema(
             required: true
         },
         
-    }, { timestamps: { 
-        createdAt: 'created_at' 
-        } 
-       },
+    }, { timestamps: { createdAt: 'created_at' }},
 
     {
         toJSON: {
@@ -40,11 +37,8 @@ const thoughtSchema = new Schema(
             required: true 
         },
         reactions: [reactionSchema],
-    }, { timestamps: { 
-        createdAt: 'created_at' 
-        } 
-       },
-
+    }, 
+    { timestamps: { createdAt: 'created_at' }},
     {
         toJSON: {
             virtuals: true,
