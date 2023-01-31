@@ -97,9 +97,9 @@ module.exports = {
       //Delete a reaction
       deleteReaction(req, res) {
         console.log(req.body.reactionID)
-        Thought.findByIdAndUpdate(
+        Thought.findOneAndUpdate(
             { _id: req.params.thoughtID },
-            { $pullAll: { reactions: req.body.reactionID }},
+            { $pull: { reactions: {reactionID: req.params.reactionID}  }},
             { runValidators: true, new: true }
         )
         .then((thought) => 
@@ -109,7 +109,7 @@ module.exports = {
         )
         .catch((err) => 
             res.status(500).json(err)
-        );
+        );  
       },
 
 }
