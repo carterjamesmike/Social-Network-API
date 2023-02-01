@@ -1,21 +1,37 @@
-# Social-Network-API
+# Social Media NoSQL API routing
 
-        GET for all USERS (still need to link thoughts)
-                GET for all THOUGHTS
-                GET for single USER
-                GET for single THOUGHT
-                POST for USERS
-                POST for THOUGHTS
-                PUT for USERS
-                PUT for THOUGHTS
-        DELETE for USERS (still need to link thougths)
-        DELETE for THOUGHTS (still need to link reacctions?)
-POST for REACTIONS
-DELETE for REACTIONS
-                POST for USER's friend list
-                DELETE for USER's friend list
+## Description
+Database and backend api routes for a social media platform using MongoDB
+
+## Table of Contents
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [Licence](#licence)
+4. [Contributors](#contributors)
+5. [Test](#test)
+6. [Questions](#questions)
 
 
+## Installation <div id='installation'/>
+To install, run this command:
+>npm i
 
-BONUS
-When USER is deleted, associated THOUGHTS are deleted (will work once thoughts are linked to users)
+## Usage <div id='usage'/>
+n/a
+
+## License <div id='license'/>
+This project is run under the None licensure
+
+## Contributors <div id='contributors'/>
+The contributors are: n/a
+
+## Screenshot and walkthrough of applicaiton
+![Screenshot of application](./assets/Social%20Media%20Backend.jpg)
+[video walkthrough](https://drive.google.com/file/d/1xYdZ2o6PwdwrX4dVk9ZGwMUU7gSNpuSy/view?usp=sharing)
+
+## Test <div id='test'/>
+For tests, run this command:
+>n/a
+
+## Questions <div id='questions'/>
+For quetions, please email at carterjamesmike@gmail.com or visit my github profile at [carterjamesmike](https://github.com/carterjamesmike)

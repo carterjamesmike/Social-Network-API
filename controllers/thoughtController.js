@@ -1,4 +1,3 @@
-const { ObjectID } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
 module.exports = {
@@ -60,11 +59,10 @@ module.exports = {
         .catch((err) =>
             res.status(500).json(err)
             ); 
-
     },
 
-      //Delete a thought
-      deleteThought(req, res) {
+    //Delete a thought
+    deleteThought(req, res) {
         Thought.findOneAndDelete({ _id: req.params.thoughtID })
             .then((thought) => {
             if (!thought) {
@@ -75,10 +73,10 @@ module.exports = {
             .catch((err) => 
                 res.status(500).json(err)
             );
-      },
+        },
 
-      //Create a reaction
-      createReaction(req, res) {
+    //Create a reaction
+    createReaction(req, res) {
         Thought.findByIdAndUpdate(
             { _id: req.params.thoughtID },
             { $addToSet: { reactions: req.body }},
@@ -94,8 +92,8 @@ module.exports = {
         );
       },
 
-      //Delete a reaction
-      deleteReaction(req, res) {
+    //Delete a reaction
+    deleteReaction(req, res) {
         console.log(req.body.reactionID)
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtID },
